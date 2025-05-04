@@ -1,0 +1,59 @@
+<section class="hero">
+    <div *ngFor="let slide of slides; let i = index" [hidden]="currentSlide !== i" class="hero-slide">
+        <h2>{{ slide.title }}</h2>
+        <p>{{ slide.date }}</p>
+        <p>{{ slide.tagLine }}</p>
+        <a routerLink="/events" class="btn">Резервирај билет</a>
+    </div>
+</section>
+
+<section class="stats">
+    <div *ngFor="let stat of stats" class="stat-item">
+        <h3>{{ stat.percent }}</h3>
+        <p>{{ stat.label }}</p>
+    </div>
+</section>
+
+<section class="services">
+    <h2>Нашите услуги</h2>
+    <div class="service-list">
+        <div *ngFor="let svc of services" class="service-item">
+            <h3>{{ svc.title }}</h3>
+            <p>{{ svc.description }}</p>
+            <a [routerLink]="svc.route" class="btn">Преглед</a>
+        </div>
+    </div>
+</section>
+
+<section class="about">
+    <h2>За нас</h2>
+    <p>
+        Театар за тебе е детска театарска група основана во 2023, посветена на
+        создавање незаборавни претстави и работилници за деца од 3–12 години.
+        Нашата мисија е да поттикнеме фантазија, креативност и самодоверба
+        преку игра, музика и настава на сцена.
+    </p>
+    <a routerLink="/about" class="btn">Прочитај повеќе</a>
+</section>
+
+<section class="testimonial">
+    <blockquote>“{{ testimonial.quote }}”</blockquote>
+    <p class="author">— {{ testimonial.author }}</p>
+</section>
+
+<section class="final-cta">
+    <h2>Занимателни детски активности секој викенд!</h2>
+    <p>Резервирајте го вашето место денес и подарете незаборавен ден на вашите деца.</p>
+    <a routerLink="/contact" class="btn">Контактирај не</a>
+</section>
+
+<footer class="site-footer">
+    <nav>
+        <a routerLink="/">Home</a>
+        <a routerLink="/about">About</a>
+        <a routerLink="/events">Events</a>
+        <a routerLink="/workshops">Workshops</a>
+        <a routerLink="/contact">Contact</a>
+    </nav>
+    <p>© 2025 Театар за тебе</p>
+</footer>
