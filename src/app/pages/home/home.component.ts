@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { PlatformService } from '../../services/platfrom.service';
@@ -26,7 +26,7 @@ interface Service {
 
 @Component({
   standalone: true,
-  imports: [CommonModule, RouterLink, NgOptimizedImage],
+  imports: [CommonModule, RouterLink],
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'

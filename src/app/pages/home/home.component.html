@@ -12,8 +12,7 @@
         <button (click)="ChangeSlide(1)"> next</button>
     </div>
     <div *ngFor="let slide of slides; let i = index" class="hero-slide" [class.active]="i === currentSlide">
-
-        <div class="overlay"></div>
+        <!-- <div class="overlay"></div> -->
 
         <div class="hero-content" [style.backgroundImage]="'url(' + slide.imageUrl + ')'">
             <!-- left info-card -->
@@ -29,24 +28,6 @@
     </div>
 </section>
 
-<section class="stats">
-    <div *ngFor="let stat of stats" class="stat-item">
-        <h3>{{ stat.percent }}</h3>
-        <p>{{ stat.label }}</p>
-    </div>
-</section>
-
-<section class="services">
-    <h2>Нашите услуги</h2>
-    <div class="service-list">
-        <div *ngFor="let svc of services" class="service-item">
-            <h3>{{ svc.title }}</h3>
-            <p>{{ svc.description }}</p>
-            <a [routerLink]="svc.route" class="btn">Преглед</a>
-        </div>
-    </div>
-</section>
-
 <section class="about">
     <h2>За нас</h2>
     <p>
@@ -57,6 +38,18 @@
     </p>
     <a routerLink="/about" class="btn">Прочитај повеќе</a>
 </section>
+<section class="services">
+    <h2>Нашите услуги</h2>
+    <div class="service-list">
+        <div [style.backgroundImage]="'url(' + slides[3].imageUrl + ')'" *ngFor="let svc of services"
+            class="service-item">
+            <h3>{{ svc.title }}</h3>
+            <p>{{ svc.description }}</p>
+            <a [routerLink]="svc.route" class="btn">Преглед</a>
+        </div>
+    </div>
+</section>
+
 
 <section class="testimonial">
     <blockquote>“{{ testimonial.quote }}”</blockquote>
