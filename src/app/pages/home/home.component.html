@@ -1,11 +1,42 @@
+<img ngSrc="/src/assets/images/teatar-3.jpg" fill alt=""> 
+<img ngSrc="slide.imageUrl" fill alt=""> 
+<img src="/src/assets/images/teatar-3.jpg" alt="Test Teatar 1" style="max-width:300px" />
+
+
+
 <section class="hero">
-    <div *ngFor="let slide of slides; let i = index" [hidden]="currentSlide !== i" class="hero-slide">
-        <h2>{{ slide.title }}</h2>
-        <p>{{ slide.date }}</p>
-        <p>{{ slide.tagLine }}</p>
-        <a routerLink="/events" class="btn">Резервирај билет</a>
+    <div style="z-index: 2;">
+<!-- temp debugging -->
+
+        <button (click)="ChangeSlide(-1)"> PREV </button>
+        <button (click)="ChangeSlide(1)"> next</button>
     </div>
-</section>
+    <div
+      *ngFor="let slide of slides; let i = index"
+      class="hero-slide"
+      [class.active]="i === currentSlide"
+      >
+
+    <div class="overlay"></div>
+    
+    <div class="hero-content">
+        <!-- left info-card -->
+        <div class="info-card">
+            <h2>{{ slide.title }}</h2>
+            <p class="date">{{ slide.date }}</p>
+            <p class="tagline">{{ slide.tagLine }}</p>
+            <a routerLink="/events" class="btn">Резервирај билет</a>
+        </div>
+        
+        <!-- right preview image -->
+        <div class="event-preview">
+            <img [src]="slide.imageUrl" [alt]="slide.title" />
+        </div>
+    </div>
+    
+      <div class="gradient-footer"></div>
+    </div>
+  </section>
 
 <section class="stats">
     <div *ngFor="let stat of stats" class="stat-item">

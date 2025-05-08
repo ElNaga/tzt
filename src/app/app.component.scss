@@ -1,0 +1,24 @@
+.site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background: #ffffff;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  .site-header .logo {
+    font-weight: bold;
+    font-size: 1.25rem;
+  }
+  .site-header nav a {
+    margin-left: 1rem;
+    text-decoration: none;
+    color: #2c3e50;
+  }
+  .site-header nav a:hover {
+    text-decoration: underline;
+  }
+  main {
+    display: block;
+  }
+  
