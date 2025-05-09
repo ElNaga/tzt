@@ -2,21 +2,32 @@
     <div style="z-index: 4;">
         <!-- temp debugging -->
 
-        <button (click)="ChangeSlide(-1)"> PREV </button>
-        <button (click)="ChangeSlide(1)"> next</button>
+        <button class="nav-btn prev" (click)="ChangeSlide(-1)">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="#fff" aria-hidden="true">
+                <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+            </svg>
+        </button>
+        <button class="nav-btn next" (click)="ChangeSlide(1)">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="#fff" aria-hidden="true">
+                <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z" />
+            </svg>
+        </button>
     </div>
-    <div *ngFor="let slide of slides; let i = index" class="hero-slide" [class.active]="i === currentSlide">
-        <!-- <div class="overlay"></div> -->
+    <div *ngFor="let slide of slides; let i = index" class="hero-slide" [class.notactive]="i !== currentSlide"
+        [class.active]="i === currentSlide">
 
-        <div class="hero-content" [style.backgroundImage]="'url(' + slide.imageUrl + ')'">
+        <div class="hero-content" [ngClass]="i===currentSlide ? 'zm1000' : 'z1000'"
+            [style.backgroundImage]="'url(' + slide.imageUrl + ')'">
             <!-- left info-card -->
-            <div class="info-card">
-                <h2>{{ slide.title }}</h2>
-                <p class="date">{{ slide.date }}</p>
-                <p class="tagline">{{ slide.tagLine }}</p>
-                <a routerLink="/events" class="btn">Резервирај билет</a>
+            <div class="info-card ">
+                <h2 class="">{{ slide.title }}</h2>
+                <p class="date digital-lavander-background">{{ slide.date }}</p>
+                <p class="tagline verdant-green-background">{{ slide.tagLine }}</p>
+                <button (click)="NavigateToEvents(slide.title)" class="btn-stroked mocha-mousse-background">Резервирај
+                    билет</button>
             </div>
         </div>
+
 
         <div class="gradient-footer"></div>
     </div>

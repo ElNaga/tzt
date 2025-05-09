@@ -2,7 +2,7 @@
 .hero {
   position: relative;
   // height: 600px;
-  height: calc(100vh - 60px);
+  height: calc(100vh - 41px);
   overflow: hidden;
   display: flex;
 }
@@ -23,6 +23,10 @@
 
 .hero-slide.active {
   opacity: 1;
+}
+
+.hero-slide.notactive {
+  display: none;
 }
 
 /* Dark overlay */
@@ -48,11 +52,12 @@
 
 /* Info card */
 .info-card {
-  background: rgba(255, 255, 255, 0.5);
+  // background: rgba(255, 255, 255, 0.5);
   padding: 1.5rem;
   border-radius: 8px;
   max-width: 320px;
   margin-left: 5rem;
+  color: white;
 }
 
 .info-card h2 {
@@ -60,10 +65,17 @@
   font-size: 1.75rem;
 }
 
+.date,
+.tagline {
+  width: fit-content;
+}
+
 .info-card .date,
 .info-card .tagline {
+  padding: 5px 15px;
+  border-radius: 30px;
   margin-bottom: 0.5rem;
-  color: #333;
+  color: #ffffff;
 }
 
 .info-card .btn {
@@ -233,4 +245,42 @@
 .site-footer a {
   color: #2c3e50;
   text-decoration: none;
+}
+
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.zm1000 {
+  z-index: -1000;
+
+}
+
+.z1000 {
+  z-index: 1000;
+}
+
+.nav-btn svg {
+  width: 16px;
+  height: 16px;
+  fill: #000;
+}
+
+.nav-btn.prev {
+  left: 10px;
+}
+
+.nav-btn.next {
+  right: 10px;
 }

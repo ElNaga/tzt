@@ -1,28 +1,114 @@
 /* You can add global styles to this file, and also import other style files */
 .verdant-green-color {
-  color: #12674a;
+  color: #12674a !important;
 }
 
 .verdant-green-background {
-  background: #12674a;
+  background: #12674a !important;
 }
 
 .digital-lavander-color {
-  color: #12674a;
+  color: #bf94e4 !important;
 }
 
 .digital-lavander-background {
-  background: #e6e6fa;
+  background: #bf94e4 !important;
 }
 
 .mocha-mousse-color {
-  color: #12674a;
+  color: #A47864 !important;
 }
 
 .mocha-mousse-background {
-  background: #A47864;
+  background: #A47864 !important;
 }
+
+$verdant-green: #12674a !default;
+$digital-lavander: #bf94e4 !default;
+$mocha-mousse: #A47864 !default;
+$dark-mocha-mousse: #705041 !default;
 
 body {
   font-family: 'PT Sans', sans-serif;
+  background-color: #A47864 !important;
+}
+
+a,
+p {
+  font-family: 'PT serif', sans-serif;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: #b26b4c; // your brand color
+  color: #fff;
+  text-decoration: none;
+  border-radius: 0.25rem;
+  border: none;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.btn:hover,
+.btn:focus {
+  background-color: #9a5a41; // slightly darker
+}
+
+
+/* Stroked button */
+.btn-stroked {
+
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 16px;
+  padding: 0 16px;
+  margin: 16px 0 8px;
+  height: 36px;
+  line-height: 36px;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  color: var(--btn-primary);
+  background: transparent;
+  border: 1px solid var(--btn-primary);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background .2s, box-shadow .2s;
+}
+
+/* Hover/Focus */
+.btn-stroked:hover,
+.btn-stroked:focus {
+  background: var(--btn-hover-bg);
+  box-shadow: 0 2px 2px $mocha-mousse,
+    0 1px 5px rgba(0, 0, 0, 0.12),
+    0 3px 1px rgba(0, 0, 0, 0.20);
+  outline: none;
+}
+
+/* Ripple pseudo-element */
+.btn-stroked::after {
+  content: "";
+  position: absolute;
+  left: var(--ripple-x, 50%);
+  top: var(--ripple-y, 50%);
+  width: 0;
+  height: 0;
+  background: $dark-mocha-mousse;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width .4s ease-out, height .4s ease-out, opacity .6s ease-out;
+  pointer-events: none;
+}
+
+/* On active click: expand & fade */
+.btn-stroked:active::after {
+  width: 200px;
+  height: 200px;
+  opacity: 0;
 }

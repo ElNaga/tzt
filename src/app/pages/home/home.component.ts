@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { PlatformService } from '../../services/platfrom.service';
-// import { image1 } from '../../../assets/images/images/teatar3.jpg'
-
-// src = "/assets/images/img/1.jpg"
 
 interface Slide {
   title: string;
@@ -89,20 +86,25 @@ export class HomeComponent implements OnInit {
     author: 'Марија Николовска'
   };
 
-  constructor(private readonly platformService: PlatformService) {
-
+  constructor(
+    private readonly platformService: PlatformService,
+    private router: Router
+  ) {
+    
   }
 
   ngOnInit() {
     this.platformService.isBrowser() && this.ChangeCarouselItem();
   }
 
-  testClick() { console.log('🌟 testClick fired!'); }
-
-
   ChangeSlide(delta: number) {
     const len = this.slides.length;
     this.currentSlide = ((this.currentSlide + delta) % len + len) % len;
+  }
+  NavigateToEvents(info:string) {
+    console.log('events', info)
+    this.router.navigate(['/events'])
+
   }
 
   private ChangeCarouselItem() {

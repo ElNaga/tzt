@@ -3,9 +3,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
-  background: #ffffff;
-  border-bottom: 1px solid #e0e0e0;
+  // padding: 1rem 2rem;
+  background-color: #e0e0e0;
+  padding: 0 2rem;
 }
 
 .site-header .logo {
@@ -28,4 +28,87 @@
 .site-header nav a.active {
   text-decoration: underline;
   font-weight: bold;
+}
+
+.right-navbar {
+  height: 100%;
+  display: flex;
+}
+
+/* 1. Base element */
+a {
+  padding: 1rem 2rem;
+  position: relative;
+  overflow: hidden;
+  /* contain the pseudo-element */
+  width: fit-content;
+  height: 100%;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+}
+
+/* 2. The dropping overlay */
+a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #A47864;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  /* ↑ starts fast, slows near the end :contentReference[oaicite:0]{index=0} */
+  z-index: -1;
+}
+
+/* 3. Hover state: scale down from top to full height */
+a:hover::before {
+  transform: scaleY(1);
+}
+
+/* 4. Ensure text/content stays above overlay */
+a>* {
+  position: relative;
+  z-index: 1;
+}
+
+/* 1) Scope everything to your header nav links */
+.site-header nav a {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  padding: 0.75rem 1.25rem;
+  color: #2c3e50;
+  /* dark text by default */
+  text-decoration: none;
+  transition: color 0.3s ease;
+  /* fade text color on hover */
+}
+
+.site-header nav a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #A47864;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  z-index: -1;
+  /* behind the text */
+}
+
+.site-header nav a:hover::before {
+  transform: scaleY(1);
+}
+
+.site-header nav a:hover {
+  color: #fff;
+  /* switch text to white on hover */
 }
